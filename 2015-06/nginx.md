@@ -12,6 +12,7 @@ ssl                        on;
 //指定证书
 
 ssl_certificate            **/**/wb.crt;
+
 //写上这个重启nginx时，不需要输入密码
 
 ssl_certificate_key        **/**/wb_nopass.key;
@@ -19,6 +20,7 @@ ssl_certificate_key        **/**/wb_nopass.key;
 //开启缓存，缓存大小为10m，1m可以保存4000个会话，这里可以保存40000个~
 
 ssl_session_cache          shared:SSL:10m;
+
 //超时时间10分钟
 
 ssl_session_timeout        10m;
