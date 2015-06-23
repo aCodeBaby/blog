@@ -35,7 +35,7 @@ ssl_session_timeout        10m;
 ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
 ```
 
-//其他可以参考http://nginx.org/en/docs/http/ngx_http_ssl_module.html
+其他可以参考http://nginx.org/en/docs/http/ngx_http_ssl_module.html
 
 ## 另外linux下自己生成证书的方法，window没研究过，自行baidu/google下：
 
