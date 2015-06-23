@@ -1,6 +1,7 @@
-#开启nginx的https服务
+开启nginx的https服务
+============================
 
-首先是协议：
+## 首先是协议：
 
 1. SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。
 
@@ -8,6 +9,7 @@
 
 3. SSL是Netscape开发的专门用户保护Web通讯的，目前版本为3.0。最新版本的TLS 1.0是IETF(工程任务组)制定的一种新的协议，它建立在SSL 3.0协议规范之上，是SSL 3.0的后续版本。两者差别极小，可以理解为SSL 3.1，它是写入了RFC的。
 
+```
 //开启ssl
 
 ssl                        on;
@@ -31,11 +33,13 @@ ssl_session_timeout        10m;
 //指定适用的协议，去年爆出了SSL3的大漏洞，所以这里不支持这个。
 
 ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
+```
 
 //其他可以参考http://nginx.org/en/docs/http/ngx_http_ssl_module.html
 
-#另外linux下自己生成证书的方法，window没研究过，自行baidu/google下：
+## 另外linux下自己生成证书的方法，window没研究过，自行baidu/google下：
 
+```
 //生成一个RSA的密钥，输入两次密码
 
 openssl genrsa -des3 -out wb.key 1024
@@ -51,3 +55,4 @@ openssl rsa -in wb.key -out wb_nopass.key
 //因为没有申请正式的（要花钱的！！！），所以自己给自己签发，输入密码，over！
 
 openssl x509 -req -days 365 -in wb.csr -signkey wb.key -out wb.crt
+```
